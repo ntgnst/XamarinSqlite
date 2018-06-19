@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinSqlite.PersonPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="5" Padding="15">
+            <Label Text="Ad :" />
+            <Entry Text="{Binding SelectedPerson.Name , Mode=TwoWay}" Keyboard="Text" />
+            <Label Text="Soyad :" />
+            <Entry Text="{Binding SelectedPerson.Surname , Mode=TwoWay}"/>
+            <Label Text="GSM :" />
+            <Entry Text="{Binding SelectedPerson.GSM , Mode=TwoWay}" Keyboard="Numeric" MaxLength="11"/>
+            <StackLayout>
+                <Button BackgroundColor="White" Text="İptal" Command="{Binding Decline}" HorizontalOptions="FillAndExpand"/>
+                <Button BackgroundColor="White" Text="Oluştur" Command="{Binding Confirm}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

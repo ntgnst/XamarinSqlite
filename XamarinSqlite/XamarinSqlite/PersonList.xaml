@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinSqlite.PersonList">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ekle" Command="{Binding Add}"></ToolbarItem>
+        <ToolbarItem Text="Sil" Command="{Binding Delete}"></ToolbarItem>
+        <ToolbarItem Text="Güncelle" Command="{Binding Edit}"></ToolbarItem>
+        <ToolbarItem Text="Ara" Command="{Binding Call}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ListView ItemsSource="{Binding PersonList}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" x:Name="myListView" ItemSelected="ItemSelected" BackgroundColor="White" RowHeight="90" SeparatorColor="Black" HorizontalOptions="FillAndExpand" Margin="15">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="5">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding Name ,Mode=TwoWay}" HorizontalTextAlignment="Start" FontSize="15"></Label>
+                                            <Label Text="{Binding Surname ,Mode=TwoWay}" HorizontalTextAlignment="Start" FontSize="10"></Label>
+                                            <Label Text="{Binding GSM ,Mode=TwoWay}" HorizontalTextAlignment="Start"></Label>
+                                            <Label Text="{Binding CreateTime,Mode=TwoWay,StringFormat='Eklenme Tarihi : {0}'}" HorizontalTextAlignment="End" FontSize="8"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
