@@ -7,6 +7,7 @@
         <ToolbarItem Text="Sil" Command="{Binding Delete}"></ToolbarItem>
         <ToolbarItem Text="Güncelle" Command="{Binding Edit}"></ToolbarItem>
         <ToolbarItem Text="Ara" Command="{Binding Call}"></ToolbarItem>
+        <ToolbarItem Text="Mail" Command="{Binding Mail}"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

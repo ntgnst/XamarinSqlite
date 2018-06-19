@@ -44,6 +44,7 @@ namespace XamarinSqlite.ViewModel
         public Command Confirm { get; set; }
         public Command Decline { get; set; }
         public Command Call { get; set; }
+        public Command Mail { get; set; }
         public PersonListViewModel(INavigation navigation)
         {
             _selectedPerson = new Person();
@@ -150,6 +151,14 @@ namespace XamarinSqlite.ViewModel
                 }
                 else
                     App.Current.MainPage.DisplayAlert("Hata", "Lütfen Bir Numara Seçiniz.", "Tamam");
+            });
+            Mail = new Command(() => 
+            {
+                var mail = CrossMessaging.Current.EmailMessenger;
+                if (mail.CanSendEmail)
+                {
+                    mail.SendEmail("yahsibatuhan@gmail.com","Test","Xamarin emailidir.");
+                }
             });
         }
         
